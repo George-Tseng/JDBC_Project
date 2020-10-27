@@ -55,7 +55,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
         List<Wifi_Info> wifiLocationList = new ArrayList<>();
 
         try (Connection connection0 = getDataSource(dbInfo).getConnection()) {
-            try (PreparedStatement preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info")) {
+            try (PreparedStatement preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info")) {
                 /* begin transaction */
                 connection0.setAutoCommit(false);
                 /* 執行 */
@@ -121,7 +121,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
 
         try (Connection connection0 = getDataSource(dbInfo).getConnection()) {
             try (PreparedStatement preStmt0 = connection0.prepareStatement(
-                    "INSERT INTO dbo.Wifi_Info(SITE_ID, NAME, AGENCY, AREACODE, AREANAME, ADDR, LONGITUDE, LATITUDE, VERSION) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+                    "INSERT INTO dbo.wifi_info(SITE_ID, NAME, AGENCY, AREACODE, AREANAME, ADDR, LONGITUDE, LATITUDE, VERSION) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
                 /* begin transaction */
                 connection0.setAutoCommit(false);
 
@@ -318,7 +318,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn4Change && isColumn5Change
                             && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ? AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ? AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -331,7 +331,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn4Change && isColumn5Change
                             && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -343,7 +343,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn4Change && isColumn5Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -355,7 +355,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn4Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -367,7 +367,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -379,7 +379,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn4Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, address); // 設定地址
@@ -391,7 +391,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn3Change && isColumn4Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -403,7 +403,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn2Change && isColumn3Change && isColumn4Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -415,7 +415,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn4Change
                             && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -426,7 +426,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn4Change
                             && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -437,7 +437,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn4Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -448,7 +448,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn5Change
                             && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -459,7 +459,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn5Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -470,7 +470,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn4Change && isColumn5Change
                             && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, address); // 設定地址
@@ -481,7 +481,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn4Change && isColumn5Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, address); // 設定地址
@@ -492,7 +492,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn2Change && isColumn4Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, address); // 設定地址
@@ -503,7 +503,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn3Change && isColumn4Change && isColumn5Change
                             && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -514,7 +514,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn3Change && isColumn4Change && isColumn5Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -525,7 +525,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn3Change && isColumn4Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -536,7 +536,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn3Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -547,7 +547,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn1Change && isColumn4Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -558,7 +558,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn2Change && isColumn3Change && isColumn4Change && isColumn5Change
                             && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -569,7 +569,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn2Change && isColumn3Change && isColumn4Change && isColumn5Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -580,7 +580,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn2Change && isColumn3Change && isColumn4Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -591,7 +591,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn2Change && isColumn3Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -602,7 +602,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn2Change && isColumn4Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -613,7 +613,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (isColumn3Change && isColumn4Change && isColumn5Change && isColumn6Change
                             && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -623,7 +623,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、縣市區域跟地址都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn4Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -632,7 +632,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、縣市區域跟經度都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -641,7 +641,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、縣市區域跟緯度都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -650,7 +650,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、縣市區域跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn3Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -659,7 +659,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、地址跟經度都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn4Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, address); // 設定地址
@@ -668,7 +668,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、地址跟緯度都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn4Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, address); // 設定地址
@@ -677,7 +677,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、地址跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn4Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, address); // 設定地址
@@ -686,7 +686,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、經度跟緯度都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -695,7 +695,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、經度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -704,7 +704,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號、緯度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -713,7 +713,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域、地址跟經度都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn4Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -722,7 +722,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域、地址跟緯度都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn4Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -731,7 +731,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域、地址跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn4Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -740,7 +740,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域、經度跟緯度都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -749,7 +749,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域、經度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -758,7 +758,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域、緯度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -767,7 +767,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、地址、經度跟緯度都有變更 */
                     else if (isColumn1Change && isColumn4Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -776,7 +776,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、地址、經度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn4Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -785,7 +785,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、地址、緯度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn4Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -794,7 +794,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、經度、緯度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn5Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -803,7 +803,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域、地址跟經度都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn4Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -812,7 +812,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域、地址跟緯度都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn4Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -821,7 +821,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域、地址跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn4Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -830,7 +830,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域、經度跟緯度都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -839,7 +839,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域、經度跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -848,7 +848,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域、緯度跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -857,7 +857,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、地址、經度跟緯度都有變更 */
                     else if (isColumn2Change && isColumn4Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -866,7 +866,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、地址、經度跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn4Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -875,7 +875,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、地址、緯度跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn4Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -884,7 +884,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、經度、緯度跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn5Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(2, latitude); // 設定經度
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -893,7 +893,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、地址、經度跟緯度都有變更 */
                     else if (isColumn3Change && isColumn4Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -902,7 +902,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、地址、經度跟主管機關都有變更 */
                     else if (isColumn3Change && isColumn4Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -911,7 +911,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、地址、緯度跟主管機關都有變更 */
                     else if (isColumn3Change && isColumn4Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -920,7 +920,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、經度、緯度跟主管機關都有變更 */
                     else if (isColumn3Change && isColumn5Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -929,7 +929,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 地址、經度、緯度跟主管機關都有變更 */
                     else if (isColumn4Change && isColumn5Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET ADDR = ?, LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, address); // 設定地址
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -938,7 +938,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號跟縣市區域都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn3Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AREANAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AREANAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, areaName); // 設定縣市區域
@@ -946,7 +946,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號跟地址都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn4Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, address); // 設定地址
@@ -954,7 +954,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號跟經度都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -962,7 +962,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號跟緯度都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -970,7 +970,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、郵遞區號跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn2Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -978,7 +978,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域跟地址都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn4Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -986,7 +986,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域跟經度都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -994,7 +994,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域跟緯度都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1002,7 +1002,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、縣市區域跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn3Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1010,7 +1010,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、地址跟經度都有變更 */
                     else if (isColumn1Change && isColumn4Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -1018,7 +1018,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、地址跟緯度都有變更 */
                     else if (isColumn1Change && isColumn4Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1026,7 +1026,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、地址跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn4Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1034,7 +1034,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、經度跟緯度都有變更 */
                     else if (isColumn1Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1042,7 +1042,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、經度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1050,7 +1050,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱、緯度跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1058,7 +1058,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn4Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, address); // 設定地址
@@ -1066,7 +1066,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域跟經度都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -1074,7 +1074,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域跟緯度都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1082,7 +1082,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、縣市區域跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn3Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1090,7 +1090,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、地址跟經度都有變更 */
                     else if (isColumn2Change && isColumn4Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -1098,7 +1098,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、地址跟緯度都有變更 */
                     else if (isColumn2Change && isColumn4Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1106,7 +1106,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、地址跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn4Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1114,7 +1114,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、經度跟緯度都有變更 */
                     else if (isColumn2Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1122,7 +1122,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、經度跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1130,7 +1130,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 郵遞區號、緯度跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1138,7 +1138,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、地址跟經度都有變更 */
                     else if (isColumn3Change && isColumn4Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, longitude); // 設定經度
@@ -1146,7 +1146,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、地址跟緯度都有變更 */
                     else if (isColumn3Change && isColumn4Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1154,7 +1154,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、地址跟主管機關都有變更 */
                     else if (isColumn3Change && isColumn4Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, address); // 設定地址
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1162,7 +1162,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、經度跟緯度都有變更 */
                     else if (isColumn3Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1170,7 +1170,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、經度跟主管機關都有變更 */
                     else if (isColumn3Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1178,7 +1178,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 縣市區域、緯度跟主管機關都有變更 */
                     else if (isColumn3Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1186,7 +1186,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 地址、經度跟緯度都有變更 */
                     else if (isColumn4Change && isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET ADDR = ?, LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, address); // 設定地址
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setBigDecimal(3, latitude); // 設定緯度
@@ -1194,7 +1194,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 地址、經度跟主管機關都有變更 */
                     else if (isColumn4Change && isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET ADDR = ?, LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, address); // 設定地址
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1202,7 +1202,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 地址、緯度跟主管機關都有變更 */
                     else if (isColumn4Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET ADDR = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, address); // 設定地址
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1210,7 +1210,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 經度、緯度跟主管機關都有變更 */
                     else if (isColumn5Change && isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET LONGITUDE = ?, LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setBigDecimal(1, longitude); // 設定經度
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                         preStmt0.setString(3, agency); // 設定主管機關
@@ -1218,190 +1218,190 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 熱點名稱跟郵遞區號都有變更 */
                     else if (isColumn1Change && isColumn2Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREACODE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREACODE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setInt(2, areaCode); // 設定郵遞區號
                     }
                     /* 熱點名稱跟縣市區域都有變更 */
                     else if (isColumn1Change && isColumn3Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AREANAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AREANAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, areaName); // 設定縣市區域
                     }
                     /* 熱點名稱跟地址都有變更 */
                     else if (isColumn1Change && isColumn4Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, address); // 設定地址
                     }
                     /* 熱點名稱跟經度都有變更 */
                     else if (isColumn1Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                     }
                     /* 熱點名稱跟緯度都有變更 */
                     else if (isColumn1Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                     }
                     /* 熱點名稱跟主管機關都有變更 */
                     else if (isColumn1Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET NAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET NAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                         preStmt0.setString(2, agency); // 設定主管機關
                     }
                     /* 郵遞區號跟縣市區域都有變更 */
                     else if (isColumn2Change && isColumn3Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AREANAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AREANAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, areaName); // 設定縣市區域
                     }
                     /* 郵遞區號跟地址都有變更 */
                     else if (isColumn2Change && isColumn4Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, address); // 設定地址
                     }
                     /* 郵遞區號跟經度都有變更 */
                     else if (isColumn2Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                     }
                     /* 郵遞區號跟緯度都有變更 */
                     else if (isColumn2Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                     }
                     /* 郵遞區號跟主管機關都有變更 */
                     else if (isColumn2Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                         preStmt0.setString(2, agency); // 設定主管機關
                     }
                     /* 縣市區域跟地址都有變更 */
                     else if (isColumn3Change && isColumn4Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, address); // 設定地址
                     }
                     /* 縣市區域跟經度都有變更 */
                     else if (isColumn3Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                     }
                     /* 縣市區域跟緯度都有變更 */
                     else if (isColumn3Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                     }
                     /* 縣市區域跟主管機關都有變更 */
                     else if (isColumn3Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                         preStmt0.setString(2, agency); // 設定主管機關
                     }
                     /* 地址跟經度都有變更 */
                     else if (isColumn4Change && isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET ADDR = ?, LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, address); // 設定地址
                         preStmt0.setBigDecimal(2, longitude); // 設定經度
                     }
                     /* 地址跟緯度都有變更 */
                     else if (isColumn4Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET ADDR = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, address); // 設定地址
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                     }
                     /* 地址跟主管機關都有變更 */
                     else if (isColumn4Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET ADDR = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, address); // 設定地址
                         preStmt0.setString(2, agency); // 設定主管機關
                     }
                     /* 經度跟緯度都有變更 */
                     else if (isColumn5Change && isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET LONGITUDE = ?, LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setBigDecimal(1, longitude); // 設定經度
                         preStmt0.setBigDecimal(2, latitude); // 設定緯度
                     }
                     /* 經度跟主管機關都有變更 */
                     else if (isColumn5Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET LONGITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setBigDecimal(1, longitude); // 設定經度
                         preStmt0.setString(2, agency); // 設定主管機關
                     }
                     /* 緯度跟主管機關都有變更 */
                     else if (isColumn6Change && isColumn7Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET LATITUDE = ?, AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setBigDecimal(1, latitude); // 設定緯度
                         preStmt0.setString(2, agency); // 設定主管機關
                     }
                     /* 只有熱點名稱有變更 */
                     else if (isColumn1Change) {
                         preStmt0 = connection0
-                                .prepareStatement("UPDATE dbo.Wifi_Info SET NAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                .prepareStatement("UPDATE dbo.wifi_info SET NAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, name); // 設定熱點名稱
                     }
                     /* 只有郵遞區號有變更 */
                     else if (isColumn2Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREACODE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREACODE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setInt(1, areaCode); // 設定郵遞區號
                     }
                     /* 只有縣市區域有變更 */
                     else if (isColumn3Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AREANAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AREANAME = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, areaName); // 設定縣市區域
                     }
                     /* 只有地址有變更 */
                     else if (isColumn4Change) {
                         preStmt0 = connection0
-                                .prepareStatement("UPDATE dbo.Wifi_Info SET ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                .prepareStatement("UPDATE dbo.wifi_info SET ADDR = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, address); // 設定地址
                     }
                     /* 只有經度有變更 */
                     else if (isColumn5Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET LONGITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setBigDecimal(1, longitude); // 設定經度
                     }
                     /* 只有緯度有變更 */
                     else if (isColumn6Change) {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET LATITUDE = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setBigDecimal(1, latitude); // 設定緯度
                     }
                     /* 只有主管機關有變更 */
                     else {
                         preStmt0 = connection0.prepareStatement(
-                                "UPDATE dbo.Wifi_Info SET AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
+                                "UPDATE dbo.wifi_info SET AGENCY = ?, VERSION = ? WHERE SITE_ID = ?  AND VERSION = ?");
                         preStmt0.setString(1, agency); // 設定主管機關
                     }
 
@@ -1491,7 +1491,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
 
         try (Connection connection0 = getDataSource(dbInfo).getConnection()) {
             try (PreparedStatement preStmt0 = connection0
-                    .prepareStatement("DELETE FROM dbo.Wifi_Info WHERE SITE_ID = ? ")) {
+                    .prepareStatement("DELETE FROM dbo.wifi_info WHERE SITE_ID = ? ")) {
                 /* begin transaction */
                 connection0.setAutoCommit(false);
 
@@ -1570,35 +1570,35 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
 
                     /* 用熱點代碼查詢 */
                     if (!searchCondition.getSiteId().equals("")) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE SITE_ID LIKE ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE SITE_ID LIKE ?");
 
                         String querySiteId = "%" + searchCondition.getSiteId() + "%";
                         preStmt0.setString(1, querySiteId); // 設定熱點代碼
                     }
                     /* 用熱點名稱查詢 */
                     else if (!searchCondition.getName().equals("")) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE NAME LIKE ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE NAME LIKE ?");
 
                         String queryName = "%" + searchCondition.getName() + "%";
                         preStmt0.setString(1, queryName); // 設定熱點名稱
                     }
                     /* 用郵遞區號查詢 */
                     else if (searchCondition.getAreaCode() != 0) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE AREACODE = ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE AREACODE = ?");
 
                         int queryAreaCode = searchCondition.getAreaCode();
                         preStmt0.setInt(1, queryAreaCode); // 設定郵遞區號
                     }
                     /* 用縣市區域查詢 */
                     else if (!searchCondition.getAreaName().equals("") && searchCondition.getAddress().equals("")) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE AREANAME LIKE ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE AREANAME LIKE ?");
 
                         String queryAreaName = "%" + searchCondition.getAreaName() + "%";
                         preStmt0.setString(1, queryAreaName); // 設定縣市區域
                     }
                     /* 用地址查詢 */
                     else if (searchCondition.getAreaName().equals("") && !searchCondition.getAddress().equals("")) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE ADDRESS LIKE ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE ADDRESS LIKE ?");
 
                         String queryAddress = "%" + searchCondition.getAddress() + "%";
                         preStmt0.setString(1, queryAddress); // 設定地址
@@ -1606,7 +1606,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 用縣市區域 + 地址查詢 */
                     else if (!searchCondition.getAreaName().equals("") && !searchCondition.getAddress().equals("")) {
                         preStmt0 = connection0.prepareStatement(
-                                "SELECT * FROM dbo.Wifi_Info WHERE AREANAME LIKE ? AND ADDRESS LIKE ?");
+                                "SELECT * FROM dbo.wifi_info WHERE AREANAME LIKE ? AND ADDRESS LIKE ?");
 
                         String queryAreaName = "%" + searchCondition.getAreaName() + "%";
                         String queryAddress = "%" + searchCondition.getAddress() + "%";
@@ -1616,7 +1616,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 用經度查詢 */
                     else if (searchCondition.getLongitude().compareTo(decimalZero) != 0
                             && searchCondition.getLatitude().compareTo(decimalZero) == 0) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE LONGITUDE = ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE LONGITUDE = ?");
 
                         BigDecimal queryLongitude = searchCondition.getLongitude();
                         preStmt0.setBigDecimal(1, queryLongitude); // 設定經度
@@ -1624,7 +1624,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     /* 用緯度查詢 */
                     else if (searchCondition.getLongitude().compareTo(decimalZero) == 0
                             && searchCondition.getLatitude().compareTo(decimalZero) != 0) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE LATITUDE = ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE LATITUDE = ?");
 
                         BigDecimal queryLatitude = searchCondition.getLatitude();
                         preStmt0.setBigDecimal(1, queryLatitude); // 設定緯度
@@ -1633,7 +1633,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     else if (searchCondition.getLongitude().compareTo(decimalZero) != 0
                             && searchCondition.getLatitude().compareTo(decimalZero) != 0) {
                         preStmt0 = connection0
-                                .prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE LONGITUDE = ? AND LATITUDE = ? ");
+                                .prepareStatement("SELECT * FROM dbo.wifi_info WHERE LONGITUDE = ? AND LATITUDE = ? ");
 
                         BigDecimal queryLongitude = searchCondition.getLongitude();
                         BigDecimal queryLatitude = searchCondition.getLatitude();
@@ -1642,7 +1642,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     }
                     /* 用主管機關查詢 */
                     else if (!searchCondition.getAgency().equals("")) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE AGENCY LIKE ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE AGENCY LIKE ?");
 
                         String queryAgency = "%" + searchCondition.getAgency() + "%";
                         preStmt0.setString(1, queryAgency); // 設定主管機關

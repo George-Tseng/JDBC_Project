@@ -1,14 +1,14 @@
 package project;
 
 //IN CMD
-//import java.io.Console;
+import java.io.Console;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 
-public class JDBCProject_IDE {
+public class JDBCProject_CMD {
     public static void main(String[] args) {
         /* boolean gate */
         boolean hasUserDir = false;
@@ -35,15 +35,15 @@ public class JDBCProject_IDE {
         List<String> tmpPKList = new ArrayList<>();
 
         /* 宣告Scanner */
-        Scanner scan = new Scanner(System.in, "UTF-8");
+        Scanner scan = new Scanner(System.in);
         // In CMD
-        // Console cons = System.console();
+        Console cons = System.console();
 
         /*暫存檔存在*/
-        if(FileCSV.checkTmpFile()) {
+        if(FileCSV.checkTmpFile2()) {
             System.out.println("程式上次使用時似乎並未正常地被關閉...");
             /*讀取暫存檔中的紀錄*/
-            List<String> tmpTimeLog = FileCSV.readTmpFile();
+            List<String> tmpTimeLog = FileCSV.readTmpFile2();
             if(tmpTimeLog.get(0).equals("Success")) {
                 System.out.println("最後運作時間：" + tmpTimeLog.get(2));
             }
@@ -52,24 +52,24 @@ public class JDBCProject_IDE {
             }
 
             /*嘗試立即刪除暫存檔*/
-            if(!FileCSV.deleteTmpFileNow().equals("")){
+            if(!FileCSV.deleteTmpFile2Now().equals("")){
                 System.out.println("上次執行時的暫存檔清除失敗...");
-                System.out.println(FileCSV.deleteTmpFileNow());
+                System.out.println(FileCSV.deleteTmpFile2Now());
             }
         }
         
         /*嘗試建立暫存檔*/
-        if(!FileCSV.createTmpFile().equals("")) {
-            System.out.println(FileCSV.createTmpFile());
+        if(!FileCSV.createTmpFile2().equals("")) {
+            System.out.println(FileCSV.createTmpFile2());
         }
         /*成功才執行寫入方法，立即執行第一次，之後每過一毫秒執行一次*/
         else{
-            tr0.schedule(new File_Timer(), 0, 1);
+            tr0.schedule(new File_Timer2(), 0, 1);
         }
 
         /*設定JVM關閉後自動刪除暫存檔*/
-        if(!FileCSV.deleteTmpFile().equals("")) {
-            System.out.println(FileCSV.deleteTmpFile());
+        if(!FileCSV.deleteTmpFile2().equals("")) {
+            System.out.println(FileCSV.deleteTmpFile2());
         }
 
         while (true) {
@@ -168,11 +168,11 @@ public class JDBCProject_IDE {
                                 && KeyCodec.getEncodeKeyLong(encodeUserInfo.get(0), encodeUserInfo.get(1), inputUser)
                                         .equals(encodeUserInfo.get(2))) {
                             // IN IDE
-                            System.out.println("請輸入使用者密碼:");
-                            String inputPassword = scan.nextLine();
+                            // System.out.println("請輸入使用者密碼(預設為tiger):");
+                            // String inputPassword = scan.nextLine();
                             // In CMD
-                            // char[] inputPasswd = cons.readPassword("請輸入使用者密碼(預設為tiger):");
-                            // String inputPassword = new String(inputPasswd);
+                            char[] inputPasswd = cons.readPassword("請輸入使用者密碼:");
+                            String inputPassword = new String(inputPasswd);
                             if (!inputPassword.equals("") && KeyCodec
                                     .getEncodeKeyLong(encodeUserInfo.get(0), encodeUserInfo.get(1), inputPassword)
                                     .equals(encodeUserInfo.get(3))) {

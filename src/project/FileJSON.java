@@ -171,8 +171,6 @@ public class FileJSON {
         Gson gson0 = new Gson();
         /* 宣告輸出用的陣列 */
         List<Wifi_Info> wifiOutputList = new ArrayList<>();
-        /* 宣告要使用的jsonString */
-        String jsonDataString;
 
         if (mode == 1) {
             jsonFileName1 = "insertedResult_JSON_UTF8_" + createFileTime + ".json";
@@ -198,21 +196,21 @@ public class FileJSON {
                 /* 設定編碼 */
                 OutputStreamWriter osw1 = new OutputStreamWriter(fos1, StandardCharsets.UTF_8);
 
-                if(mode == 2 || mode == 4) {
-                    /* 產生json字串 */
-                    jsonDataString = gson0.toJson(wifiInfoList);
-                    
-                } else {
+                /* 寫入資料 */
+                if (mode != 4 || mode != 2) {
                     for (Wifi_Info wifiData : wifiInfoList) {
                         if (PKList.contains(wifiData.getSiteId())) {
-                            Wifi_Info wifiOutputData = wifiData; 
-                            wifiOutputList.add(wifiOutputData);
+                            wifiOutputList.add(wifiData);
                         }
                     }
-                    /* 產生json字串 */
-                    jsonDataString = gson0.toJson(wifiOutputList);
+                } else {
+                    for (Wifi_Info wifiData : wifiInfoList) {
+                        wifiOutputList.add(wifiData);
+                    }
                 }
 
+                /* 產生json字串 */
+                String jsonDataString = gson0.toJson(wifiOutputList);
                 /* 寫入檔案 */
                 osw1.write(jsonDataString);
                 /* 刷新 */

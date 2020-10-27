@@ -195,7 +195,31 @@ public class FileXML {
 
                 Element rt1 = doc1.addElement("Public_Wifi_Site");
 
-                if (mode == 2 || mode == 4) {
+                if (mode != 4 || mode != 2) {
+                    for (Wifi_Info wifiData : wifiInfoList) {
+                        if (PKList.contains(wifiData.getSiteId())) {
+                            Element wifiSiteInfo1 = rt1.addElement("Wifi_Site_Info");
+                            /* 熱點代碼 */
+                            wifiSiteInfo1.addElement("siteId").addText(wifiData.getSiteId());
+                            /* 熱點名稱 */
+                            wifiSiteInfo1.addElement("name").addText(wifiData.getName());
+                            /* 郵遞區號 */
+                            wifiSiteInfo1.addElement("areaCode").addText(String.valueOf(wifiData.getAreaCode()));
+                            /* 縣市區域 */
+                            wifiSiteInfo1.addElement("areaName").addText(wifiData.getAreaName());
+                            /* 地址 */
+                            wifiSiteInfo1.addElement("areaName").addText(wifiData.getAddress());
+                            /* 經度 */
+                            wifiSiteInfo1.addElement("longitude").addText(String.valueOf(wifiData.getLongitude()));
+                            /* 緯度 */
+                            wifiSiteInfo1.addElement("latitude").addText(String.valueOf(wifiData.getLatitude()));
+                            /* 主管機關 */
+                            wifiSiteInfo1.addElement("agency").addText(wifiData.getAgency());
+                            /* 版本 */
+                            wifiSiteInfo1.addElement("version").addText(String.valueOf(wifiData.getVersion()));
+                        }
+                    }
+                } else {
                     for (Wifi_Info wifiData : wifiInfoList) {
                         Element wifiSiteInfo1 = rt1.addElement("Wifi_Site_Info");
                         /* 熱點代碼 */
@@ -216,28 +240,6 @@ public class FileXML {
                         wifiSiteInfo1.addElement("agency").addText(wifiData.getAgency());
                         /* 版本 */
                         wifiSiteInfo1.addElement("version").addText(String.valueOf(wifiData.getVersion()));
-                    }
-                } else {
-                    for (Wifi_Info wifiData : wifiInfoList) {
-                        Element wifiSiteInfo1 = rt1.addElement("Wifi_Site_Info");
-                            /* 熱點代碼 */
-                            wifiSiteInfo1.addElement("siteId").addText(wifiData.getSiteId());
-                            /* 熱點名稱 */
-                            wifiSiteInfo1.addElement("name").addText(wifiData.getName());
-                            /* 郵遞區號 */
-                            wifiSiteInfo1.addElement("areaCode").addText(String.valueOf(wifiData.getAreaCode()));
-                            /* 縣市區域 */
-                            wifiSiteInfo1.addElement("areaName").addText(wifiData.getAreaName());
-                            /* 地址 */
-                            wifiSiteInfo1.addElement("areaName").addText(wifiData.getAddress());
-                            /* 經度 */
-                            wifiSiteInfo1.addElement("longitude").addText(String.valueOf(wifiData.getLongitude()));
-                            /* 緯度 */
-                            wifiSiteInfo1.addElement("latitude").addText(String.valueOf(wifiData.getLatitude()));
-                            /* 主管機關 */
-                            wifiSiteInfo1.addElement("agency").addText(wifiData.getAgency());
-                            /* 版本 */
-                            wifiSiteInfo1.addElement("version").addText(String.valueOf(wifiData.getVersion()));
                     }
                 }
 
