@@ -36,10 +36,10 @@ public class JDBCProject_IDE {
 
         /* 宣告Scanner */
         // In IDE
-        Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in, "UTF-8");
         // In CMD
         // Console cons = System.console();
-        // Scanner scan = new Scanner(cons.reader());
+        // Scanner scan = new Scanner(System.in, "UTF-8");
 
         /*暫存檔存在*/
         if(FileCSV.checkTmpFile()) {
@@ -103,43 +103,50 @@ public class JDBCProject_IDE {
             if (createUser) {
                 System.out.println("開始建立使用者檔案...");
                 /* username&password */
-                String[] userInfo = { "scott", "tiger", "George", "SQL017u109George",
-                        "com.microsoft.sqlserver.jdbc.SQLServerDriver",
-                        "jdbc:sqlserver://localhost:1433;databaseName=JDBCProject" };
-                /* timeStamp */
-                String nowTime = TimeNow.getDateNow();
-                /* macAddress */
-                String macAddress = MacAddress.getMacAddress();
-                if (macAddress.equals("NotFound")) {
-                    System.out.println("建立使用者檔案失敗，請檢查網路連線...");
-                } else {
-                    String encodeTime = Translator.getMessageASCII(nowTime);
-                    String encodeMacAddress = Translator.getMessageASCII(macAddress);
-                    String encodeUser = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[0]);
-                    String encodePassword = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[1]);
-                    String encodeDBUser = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[2]);
-                    String encodeDBPassword = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[3]);
-                    String encodeDBDriverClassName = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress,
-                            userInfo[4]);
-                    String encodeDBUrl = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[5]);
 
-                    List<String> encodeMessage = new ArrayList<>();
-                    encodeMessage.add(encodeTime);
-                    encodeMessage.add(encodeMacAddress);
-                    encodeMessage.add(encodeUser);
-                    encodeMessage.add(encodePassword);
-                    encodeMessage.add(encodeDBUser);
-                    encodeMessage.add(encodeDBPassword);
-                    encodeMessage.add(encodeDBDriverClassName);
-                    encodeMessage.add(encodeDBUrl);
-
-                    List<String> createUserConfResult = FileXML.createUserConfXML(encodeMessage);
-                    System.out.println(createUserConfResult.get(1));
-                    createUser = false;
-                    if (createUserConfResult.get(0).equals("Fail")) {
-                        System.out.println("程式無法繼續..." + System.lineSeparator());
-                        break;
+                List<String> userInfoList = UserInfoCheck.checkUserInfo(scan);
+                if(userInfoList.size() == 6) {
+                    String[] userInfo = new String[6];
+                    for(int i = 0; i < userInfoList.size(); i++) {
+                        userInfo[i] = userInfoList.get(i);
                     }
+                    /* timeStamp */
+                    String nowTime = TimeNow.getDateNow();
+                    /* macAddress */
+                    String macAddress = MacAddress.getMacAddress();
+                    if (macAddress.equals("NotFound")) {
+                        System.out.println("建立使用者檔案失敗，請檢查網路連線...");
+                    } else {
+                        String encodeTime = Translator.getMessageASCII(nowTime);
+                        String encodeMacAddress = Translator.getMessageASCII(macAddress);
+                        String encodeUser = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[0]);
+                        String encodePassword = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[1]);
+                        String encodeDBUser = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[2]);
+                        String encodeDBPassword = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[3]);
+                        String encodeDBDriverClassName = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress,
+                                userInfo[4]);
+                        String encodeDBUrl = KeyCodec.getEncodeKeyLong(encodeTime, encodeMacAddress, userInfo[5]);
+
+                        List<String> encodeMessage = new ArrayList<>();
+                        encodeMessage.add(encodeTime);
+                        encodeMessage.add(encodeMacAddress);
+                        encodeMessage.add(encodeUser);
+                        encodeMessage.add(encodePassword);
+                        encodeMessage.add(encodeDBUser);
+                        encodeMessage.add(encodeDBPassword);
+                        encodeMessage.add(encodeDBDriverClassName);
+                        encodeMessage.add(encodeDBUrl);
+
+                        List<String> createUserConfResult = FileXML.createUserConfXML(encodeMessage);
+                        System.out.println(createUserConfResult.get(1));
+                        createUser = false;
+                        if (createUserConfResult.get(0).equals("Fail")) {
+                            System.out.println("程式無法繼續..." + System.lineSeparator());
+                            break;
+                        }
+                    }
+                } else {
+                    System.out.println("建立使用者檔案失敗...");
                 }
             }
 
@@ -154,13 +161,13 @@ public class JDBCProject_IDE {
                 } else {
                     List<String> encodeUserInfo = xmlUserConfResult.getEncodeMessage();
                     while (true) {
-                        System.out.println("載入設定檔完成..." + System.lineSeparator() + "請輸入使用者帳戶(預設為scott):");
+                        System.out.println("載入設定檔完成..." + System.lineSeparator() + "請輸入使用者帳戶:");
                         String inputUser = scan.nextLine();
                         if (!inputUser.equals("")
                                 && KeyCodec.getEncodeKeyLong(encodeUserInfo.get(0), encodeUserInfo.get(1), inputUser)
                                         .equals(encodeUserInfo.get(2))) {
                             // IN IDE
-                            System.out.println("請輸入使用者密碼(預設為tiger):");
+                            System.out.println("請輸入使用者密碼:");
                             String inputPassword = scan.nextLine();
                             // In CMD
                             // char[] inputPasswd = cons.readPassword("請輸入使用者密碼(預設為tiger):");
@@ -551,7 +558,7 @@ public class JDBCProject_IDE {
                                     /* 成功 */
                                     else {
                                         String successMessage = "順利完成修改操作..." + System.lineSeparator()
-                                                + "請問是否要將刪除的資料儲存成檔案備份？(Y/N，預設為Y)";
+                                                + "請問是否要將修改的資料儲存成檔案備份？(Y/N，預設為Y)";
                                         /* 執行存檔 */
                                         SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, sqlUpdateResult.getSqlData(), 2);
                                     }
@@ -836,7 +843,7 @@ public class JDBCProject_IDE {
                                             String successMessage = "順利完成查詢操作..." + System.lineSeparator()
                                                     + "請問是否要將查詢的資料儲存成檔案備份？(Y/N，預設為Y)";
                                             /* 執行存檔 */
-                                            SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, wifiInfoList, 4);
+                                            SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, selectedDataList, 4);
                                         } else {
                                             System.out.println("沒有查到任何符合條件的資料");
                                         }
