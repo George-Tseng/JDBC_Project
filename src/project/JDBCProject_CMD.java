@@ -35,9 +35,11 @@ public class JDBCProject_CMD {
         List<String> tmpPKList = new ArrayList<>();
 
         /* 宣告Scanner */
-        Scanner scan = new Scanner(System.in);
+        // In IDE
+        // Scanner scan = new Scanner(System.in);
         // In CMD
         Console cons = System.console();
+        Scanner scan = new Scanner(System.in, "UTF-8");
 
         /*暫存檔存在*/
         if(FileCSV.checkTmpFile2()) {
@@ -102,7 +104,7 @@ public class JDBCProject_CMD {
                 System.out.println("開始建立使用者檔案...");
                 /* username&password */
 
-                List<String> userInfoList = UserInfoCheck.checkUserInfo(scan);
+                List<String> userInfoList = UserInfoCheck.checkUserInfo(scan, cons);
                 if(userInfoList.size() == 6) {
                     String[] userInfo = new String[6];
                     for(int i = 0; i < userInfoList.size(); i++) {
@@ -559,7 +561,7 @@ public class JDBCProject_CMD {
                                     /* 成功 */
                                     else {
                                         String successMessage = "順利完成修改操作..." + System.lineSeparator()
-                                                + "請問是否要將刪除的資料儲存成檔案備份？(Y/N，預設為Y)";
+                                                + "請問是否要將修改的資料儲存成檔案備份？(Y/N，預設為Y)";
                                         /* 執行存檔 */
                                         SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, sqlUpdateResult.getSqlData(), 2);
                                     }
@@ -844,7 +846,7 @@ public class JDBCProject_CMD {
                                             String successMessage = "順利完成查詢操作..." + System.lineSeparator()
                                                     + "請問是否要將查詢的資料儲存成檔案備份？(Y/N，預設為Y)";
                                             /* 執行存檔 */
-                                            SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, wifiInfoList, 4);
+                                            SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, selectedDataList, 4);
                                         } else {
                                             System.out.println("沒有查到任何符合條件的資料");
                                         }

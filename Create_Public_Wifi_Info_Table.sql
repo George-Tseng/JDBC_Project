@@ -1,14 +1,14 @@
 USE [JDBCProject]
 GO
 
-/****** Object:  Table [dbo].[Wifi_Info]    Script Date: 2020/10/22 ¤W¤È 10:50:56 ******/
+/****** Object:  Table [dbo].[wifi_info]    Script Date: 2020/10/28 ¤W¤È 09:08:08 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Wifi_Info](
+CREATE TABLE [dbo].[wifi_info](
 	[SITE_ID] [char](10) NOT NULL,
 	[NAME] [nvarchar](65) NOT NULL,
 	[AGENCY] [nvarchar](30) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE [dbo].[Wifi_Info](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Wifi_Info] ADD  CONSTRAINT [DF_Wifi_Info_VERSION]  DEFAULT ((0)) FOR [VERSION]
+ALTER TABLE [dbo].[wifi_info] ADD  CONSTRAINT [DF_Wifi_Info_VERSION]  DEFAULT ((0)) FOR [VERSION]
 GO
 
 

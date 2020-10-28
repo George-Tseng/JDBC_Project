@@ -35,9 +35,11 @@ public class JDBCProject_IDE {
         List<String> tmpPKList = new ArrayList<>();
 
         /* 宣告Scanner */
+        // In IDE
         Scanner scan = new Scanner(System.in, "UTF-8");
         // In CMD
         // Console cons = System.console();
+        // Scanner scan = new Scanner(System.in, "UTF-8");
 
         /*暫存檔存在*/
         if(FileCSV.checkTmpFile()) {
@@ -108,9 +110,6 @@ public class JDBCProject_IDE {
                     for(int i = 0; i < userInfoList.size(); i++) {
                         userInfo[i] = userInfoList.get(i);
                     }
-//                    String[] userInfo = { "scott", "tiger", "George", "SQL017u109George",
-//                            "com.microsoft.sqlserver.jdbc.SQLServerDriver",
-//                           "jdbc:sqlserver://localhost:1433;databaseName=JDBCProject" };
                     /* timeStamp */
                     String nowTime = TimeNow.getDateNow();
                     /* macAddress */
@@ -559,7 +558,7 @@ public class JDBCProject_IDE {
                                     /* 成功 */
                                     else {
                                         String successMessage = "順利完成修改操作..." + System.lineSeparator()
-                                                + "請問是否要將刪除的資料儲存成檔案備份？(Y/N，預設為Y)";
+                                                + "請問是否要將修改的資料儲存成檔案備份？(Y/N，預設為Y)";
                                         /* 執行存檔 */
                                         SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, sqlUpdateResult.getSqlData(), 2);
                                     }
@@ -844,7 +843,7 @@ public class JDBCProject_IDE {
                                             String successMessage = "順利完成查詢操作..." + System.lineSeparator()
                                                     + "請問是否要將查詢的資料儲存成檔案備份？(Y/N，預設為Y)";
                                             /* 執行存檔 */
-                                            SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, wifiInfoList, 4);
+                                            SaveFile.saveAllTypeFile(successMessage, scan, tmpPKList, selectedDataList, 4);
                                         } else {
                                             System.out.println("沒有查到任何符合條件的資料");
                                         }

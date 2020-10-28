@@ -1642,7 +1642,7 @@ public class WifiInfoJDBCDAO implements WifiInfoDAO {
                     }
                     /* 用主管機關查詢 */
                     else if (!searchCondition.getAgency().equals("")) {
-                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.wifi_info WHERE AGENCY LIKE ?");
+                        preStmt0 = connection0.prepareStatement("SELECT * FROM dbo.Wifi_Info WHERE AGENCY LIKE ?");
 
                         String queryAgency = "%" + searchCondition.getAgency() + "%";
                         preStmt0.setString(1, queryAgency); // 設定主管機關
